@@ -1,0 +1,22 @@
+button.MarcarVista {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button.MarcarVista:hover {
+  transform: scale(1.05);
+}
+
+button.MarcarVista:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(32, 32, 32, 0.4);
+}
+
+button.MarcarVista.neutral  { background-color: #7f8c8d; } /* gris */
+button.MarcarVista.vista    { background-color: #28a745; } /* verde */
+button.MarcarVista.noVista  { background-color: #e74c3c; } /* rojo */

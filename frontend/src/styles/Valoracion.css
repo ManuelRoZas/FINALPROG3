@@ -1,0 +1,30 @@
+/* styles/ValoracionMeGusta.css */
+
+.valoracion-container {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.valoracion-icon {
+  color: gray;
+  transition: color 0.3s ease;
+}
+
+.valoracion-icon:hover {
+  color: #4caf50; /* Verde al pasar el mouse */
+}
+
+.valoracion-icon.dislike:hover {
+  color: #f44336; /* Rojo al pasar el mouse en dislike */
+}
+
+.valoracion-icon.active.like {
+  color: #4caf50; /* Verde cuando está activo like */
+}
+
+.valoracion-icon.active.dislike {
+  color: #f44336; /* Rojo cuando está activo dislike */
+}

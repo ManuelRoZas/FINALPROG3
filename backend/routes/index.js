@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const peliculasRouter = require('./peliculas');
+const usuariosRouter = require('./usuarios');
+const usuarioPeliculasRouter = require('./usuarioPeliculas');
+
+router.use('/peliculas', peliculasRouter);
+router.use('/usuarios', usuariosRouter);
+router.use('/usuarioPeliculas', usuarioPeliculasRouter);
+
 // Ruta de prueba
 router.get('/health', (req, res) => {
   res.status(200).json({

@@ -1,0 +1,24 @@
+.valoracion-botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.mano {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.mano:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.mano.seleccionado {
+  color: #28a745; /* Verde para like, podés usar rojo para dislike */
+  opacity: 1;
+}

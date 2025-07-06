@@ -1,0 +1,13 @@
+.etiqueta-genero {
+  text-decoration: none;
+  color: rgb(32, 32, 32);
+  background-color: #5d9883;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-right: 6px;
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

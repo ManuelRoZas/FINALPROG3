@@ -10,6 +10,9 @@ const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const peliculasRouter = require('./routes/peliculas');
+const usuariosRouter = require('./routes/usuarios');
+
 // Middleware de seguridad
 app.use(helmet());
 

@@ -1,0 +1,56 @@
+/* src/styles/guardarParaVer.css */
+
+.boton-guardar {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.boton-guardar:hover {
+  background-color: #5e5e5e;
+  transform: scale(1.05);
+}
+
+.boton-guardar.guardada {
+  background-color: #2ecc71; /* Verde para "Guardada" */
+  color: white;
+}
+
+.boton-guardar.guardada:hover {
+  background-color: #27ae60;
+}
+.boton-guardar.no-guardada {
+  background-color: #e74c3c; /* Rojo para "No guardada" */
+  color: white;
+}
+
+.valoracion-botones {
+  display: flex;
+  gap: 10px;
+}
+
+.mano {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.mano:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.mano.seleccionado {
+  color: #28a745; /* Verde para like, podés usar rojo para dislike */
+  opacity: 1;
+}
