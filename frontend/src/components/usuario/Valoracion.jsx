@@ -16,7 +16,6 @@ function ValoracionMeGusta({ id: peliculaId, meGustaInicial = null }) {
       return;
     }
 
-    // Si el usuario hace clic en la opción ya seleccionada, la deselecciona (pasa a null)
     const valorAEnviar = valoracion === nuevoValor ? null : nuevoValor;
 
     try {

@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Usuarios', // Asegurate que esta tabla existe y se llama así
+          model: 'Usuarios', 
           key: 'id'
         },
         onDelete: 'CASCADE'

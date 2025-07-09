@@ -12,10 +12,10 @@ async function marcarEstado(req, res) {
   try {
     const [registro, creado] = await UsuarioPeliculas.findOrCreate({
       where: { usuarioId, peliculaId },
-      defaults: {
-        guardado: campo === 'guardado' ? valor : false,
-        meGusta: campo === 'meGusta' ? valor : false,
-       vista: campo === 'vista' ? valor : false
+        defaults: {
+          guardado: campo === 'guardado' ? valor : false,
+          meGusta: campo === 'meGusta' ? valor : false,
+          vista: campo === 'vista' ? valor : false
       }
     });
 
@@ -38,7 +38,6 @@ async function obtenerPeliculasPorEstado(req, res) {
   }
 
   try {
-    // Primero buscamos los registros en UsuarioPeliculas que cumplen con usuarioId y campo=true
     const registros = await UsuarioPeliculas.findAll({
       where: {
         usuarioId,
@@ -49,7 +48,6 @@ async function obtenerPeliculasPorEstado(req, res) {
       }]
     });
 
-    // Construimos un array con las películas y la reseña directamente
     const peliculas = registros.map(registro => ({
       ...registro.Pelicula.toJSON(),
       resena: registro.resena || ''

@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const UsuarioContext = createContext();
 
 export function UsuarioProvider({ children }) {
-  const [usuario, setUsuario] = useState(null); // o algún valor inicial
+  const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
     const usuarioGuardado = localStorage.getItem('usuario');

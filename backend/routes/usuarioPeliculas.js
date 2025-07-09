@@ -7,7 +7,7 @@ const { obtenerResena, guardarResena } = require('../controllers/UsuariosControl
 router.post('/marcar-estado', marcarEstado);
 router.get('/peliculas/:usuarioId/:campo', obtenerPeliculasPorEstado);
 router.get('/estado', obtenerEstadoUsuarioPelicula);
-router.get('/resena/:usuarioId', obtenerResena)
+router.get('/resena', obtenerResena)
 router.post('/guardar-resena', guardarResena)
 
 

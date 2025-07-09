@@ -61,3 +61,32 @@ exports.eliminarPelicula = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar la película' });
   }
 };
+
+exports.obtenerGeneros = async (req, res) => {
+  try {
+    const generos = await Pelicula.findAll({
+      attributes: ['genero'],
+      group: ['genero'],
+      raw: true // 👈 esto ayuda a que no venga como objeto Sequelize
+    });
+
+    const generosUnicos = generos.map(g => g.genero);
+    res.status(200).json(generosUnicos);
+  } catch (error) {
+    console.error('Error al obtener los géneros:', error);
+    res.status(500).json({ error: 'Error al obtener los géneros' });
+  }
+};
+
+exports.obtenerPeliculasPorGenero = async (req, res) => {
+  try {
+    const { genero } = req.params;
+    const peliculas = await Pelicula.findAll({ where: { genero } });
+    res.status(200).json(peliculas);
+  } catch (error) {
+    console.error('Error al obtener las películas por género:', error);
+    res.status(500).json({ error: 'Error al obtener las películas por género' });
+  }
+};
+
+

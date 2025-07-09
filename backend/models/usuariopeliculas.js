@@ -25,14 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     peliculaId: DataTypes.INTEGER,
     guardado: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      allowNull: true,
+      defaultValue: null
     },
     meGusta: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      allowNull: true,
+      defaultValue: null
     },
     vista: {
       type: DataTypes.BOOLEAN,
+      allowNull: true,
       defaultValue: null
     },
     resena: {                  
