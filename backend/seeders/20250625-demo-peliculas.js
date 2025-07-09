@@ -5,7 +5,6 @@ module.exports = {
     // Borra todo antes de insertar para evitar duplicados
     await queryInterface.bulkDelete('Peliculas', null, {});
 
-    // Inserta las películas con las portadas que pusiste
     await queryInterface.bulkInsert('Peliculas', [
       {
         titulo: 'El juego del calamar',

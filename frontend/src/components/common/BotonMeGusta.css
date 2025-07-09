@@ -19,6 +19,6 @@
 }
 
 .mano.seleccionado {
-  color: #28a745; /* Verde para like, podés usar rojo para dislike */
+  color: #28a745; 
   opacity: 1;
 }

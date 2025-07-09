@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../styles/GeneroSelec.css';
 
 function GenerosPage() {
   const [generos, setGeneros] = useState([]);
@@ -9,7 +10,7 @@ useEffect(() => {
   fetch('/api/peliculas/generos')
     .then(res => res.json())
     .then(data => {
-      console.log('Respuesta de /generos:', data);  // 👈 esto
+      console.log('Respuesta de /generos:', data); 
       setGeneros(data);
     })
     .catch(err => {
@@ -26,10 +27,10 @@ useEffect(() => {
   }, [generoSeleccionado]);
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className='genero-contenedor'>
       <h1>Películas por Género</h1>
 
-      <select
+      <select className="genero-select"
         value={generoSeleccionado}
         onChange={(e) => setGeneroSeleccionado(e.target.value)}
       >
@@ -45,15 +46,15 @@ useEffect(() => {
           {peliculas.length === 0 ? (
             <p>No hay películas de este género.</p>
           ) : (
-            <ul>
+            <div className="peliculas-grid">
               {peliculas.map(p => (
-                <li key={p.id}>
-                  {p.titulo} ({p.año}) - {p.director}
-                  <br />
-                  <img src={p.portada} alt={p.titulo} style={{ width: 100, marginTop: 5 }} />
-                </li>
+                <div key={p.id} className="pelicula-item">
+                  <strong>{p.titulo}</strong> ({p.año})<br />
+                  <em>{p.director}</em><br />
+                  <img src={p.portada} alt={p.titulo} />
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </>
       )}

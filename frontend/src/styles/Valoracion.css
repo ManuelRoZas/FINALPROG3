@@ -14,17 +14,17 @@
 }
 
 .valoracion-icon:hover {
-  color: #4caf50; /* Verde al pasar el mouse */
+  color: #4caf50;
 }
 
 .valoracion-icon.dislike:hover {
-  color: #f44336; /* Rojo al pasar el mouse en dislike */
+  color: #f44336; 
 }
 
 .valoracion-icon.active.like {
-  color: #4caf50; /* Verde cuando está activo like */
+  color: #4caf50; 
 }
 
 .valoracion-icon.active.dislike {
-  color: #f44336; /* Rojo cuando está activo dislike */
+  color: #f44336; 
 }

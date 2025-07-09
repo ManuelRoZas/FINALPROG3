@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PeliculaCard from '../components/peliculas/PeliculaCard';
-import { useUsuario } from '../hooks/UserContext'; // ✅ Importar el contexto
+import { useUsuario } from '../hooks/UserContext';
 
 function PeliculaDetalle() {
   const { id } = useParams();
   const [pelicula, setPelicula] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [guardadoInicial, setGuardadoInicial] = useState(false); // ✅ Estado del guardado
-  const [vistaInicial, setVistaInicial] = useState(false); // ✅ Estado de la vista
+  const [guardadoInicial, setGuardadoInicial] = useState(false);
+  const [vistaInicial, setVistaInicial] = useState(false);
   const [meGustaInicial, setMeGustaInicial] = useState(false);
-  const { usuario } = useUsuario(); // ✅ Usuario actual
+  const { usuario } = useUsuario(); 
 
   useEffect(() => {
     async function fetchDatos() {

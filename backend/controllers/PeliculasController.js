@@ -67,7 +67,7 @@ exports.obtenerGeneros = async (req, res) => {
     const generos = await Pelicula.findAll({
       attributes: ['genero'],
       group: ['genero'],
-      raw: true // 👈 esto ayuda a que no venga como objeto Sequelize
+      raw: true 
     });
 
     const generosUnicos = generos.map(g => g.genero);

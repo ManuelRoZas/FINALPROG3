@@ -9,7 +9,6 @@ function UsuariosPage() {
   const [meGusta, setMeGusta] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Traer lista de usuarios al cargar
   useEffect(() => {
     fetch('/api/usuarios')
       .then(res => res.json())
@@ -17,7 +16,6 @@ function UsuariosPage() {
       .catch(console.error);
   }, []);
 
-  // Cuando cambia el usuario seleccionado, traigo sus listas
   useEffect(() => {
     if (!usuarioSeleccionado) return;
 
@@ -51,9 +49,7 @@ function UsuariosPage() {
     fetchListas();
   }, [usuarioSeleccionado]);
 
-  // Combinar todas las películas y filtrar las que tienen reseña
   const todasLasPeliculas = [...guardadas, ...vistas, ...meGusta];
-  // Para evitar duplicados (por si una peli está en más de una lista)
   const peliculasConResenaMap = new Map();
   todasLasPeliculas.forEach(peli => {
     if (peli.resena && peli.resena.trim() !== '') {

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useUsuario } from '../../hooks/UserContext';
-import '../../styles/navbar.css'; // Asegúrate de tener este archivo CSS
+import '../../styles/navbar.css';
 
 function NavBar() {
   const { usuario, setUsuario } = useUsuario();
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    // Traer lista de usuarios desde backend
     fetch('/api/usuarios')
       .then(res => res.json())
       .then(data => setUsuarios(data))
