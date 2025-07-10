@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "../styles/ListasUsuario.css";
 
 function UsuariosPage() {
   const [usuarios, setUsuarios] = useState([]);
@@ -62,7 +63,7 @@ function UsuariosPage() {
     <div style={{ padding: 20 }}>
       <h1>Usuarios</h1>
 
-      <select
+      <select className='select-usuario'
         onChange={e => {
           const id = e.target.value;
           const user = usuarios.find(u => u.id === Number(id));
@@ -89,73 +90,73 @@ function UsuariosPage() {
           {guardadas.length === 0 ? (
             <p>No hay películas guardadas.</p>
           ) : (
-            <ul>
+            <div className="peliculas-grid">
               {guardadas.map(peli => (
-                <li key={peli.id}>
+                <div key={peli.id} className="pelicula-item">
                   {peli.titulo}
                   <img
                     src={peli.portada}
                     alt={`Portada de ${peli.titulo}`}
-                    style={{ width: 50, height: 75, objectFit: 'cover', borderRadius: 4 }}
                   />
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
 
           <h2>Películas Vistas</h2>
           {vistas.length === 0 ? (
             <p>No hay películas vistas.</p>
           ) : (
-            <ul>
+            <div className="peliculas-grid">
               {vistas.map(peli => (
-                <li key={peli.id}>
+                <div key={peli.id} className="pelicula-item">
                   {peli.titulo}
                   <img
                     src={peli.portada}
                     alt={`Portada de ${peli.titulo}`}
-                    style={{ width: 50, height: 75, objectFit: 'cover', borderRadius: 4 }}
                   />
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
 
           <h2>Películas con Me Gusta</h2>
           {meGusta.length === 0 ? (
             <p>No hay películas con me gusta.</p>
           ) : (
-            <ul>
+            <div className="peliculas-grid">
               {meGusta.map(peli => (
-                <li key={peli.id}>
+                <div key={peli.id} className="pelicula-item">
                   {peli.titulo}
-                    <img
+                  <img
                     src={peli.portada}
                     alt={`Portada de ${peli.titulo}`}
-                    style={{ width: 50, height: 75, objectFit: 'cover', borderRadius: 4 }}
                   />
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
 
-          <h2>Reseñas hechas</h2>
-          {peliculasConResena.length === 0 ? (
-            <p>El usuario no ha escrito reseñas.</p>
-          ) : (
-            <ul>
-              {peliculasConResena.map(peli => (
-                <li key={peli.id}>
-                  
-                  <strong>{peli.titulo}:</strong> {peli.resena}
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
-      )}
-    </div>
-  );
-}
-
+            <h2>Reseñas hechas</h2>
+            {peliculasConResena.length === 0 ? (
+              <p>El usuario no ha escrito reseñas.</p>
+            ) : (
+              <div className="peliculas-grid">
+                {peliculasConResena.map(peli => (
+                  <div key={peli.id} className="pelicula-item">
+                    <img
+                      src={peli.portada}
+                      alt={`Portada de ${peli.titulo}`}
+                    />
+                    <h4>{peli.titulo}</h4>
+                    <p className="resena-texto">{peli.resena}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    );
+  }
 export default UsuariosPage;
