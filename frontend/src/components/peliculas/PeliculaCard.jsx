@@ -6,7 +6,6 @@ import ValoracionMeGusta from '../usuario/Valoracion';
 import ResenaPersonal from '../usuario/ResenaPersonal';
 import React from 'react';
 import '../../styles/PeliculaCard.css';
-import '../common/BotonMeGusta.css';
 
 function PeliculaCard({ pelicula, guardadoInicial , vistaInicial, meGustaInicial }) {
   const { id, titulo, portada, meGusta, genero } = pelicula;
@@ -15,13 +14,13 @@ function PeliculaCard({ pelicula, guardadoInicial , vistaInicial, meGustaInicial
   const portadaUrl = portada || 'https://via.placeholder.com/200x300?text=Portada+Ejemplo';
 
   return (
+  <div className='lista-peliculas'>
     <div className="pelicula-card">
       <Link to={`/peliculas/${id}`}>
         <div className="portada-container">
           <img
             src={portadaUrl}
             alt={`Portada de ${titulo}`}
-            style={{ width: '200px', height: '300px', objectFit: 'cover', borderRadius: '6px' }}
           />
         </div>
       </Link>
@@ -51,6 +50,7 @@ function PeliculaCard({ pelicula, guardadoInicial , vistaInicial, meGustaInicial
         />
       </div>
     </div>
+  </div>
   );
 }
 

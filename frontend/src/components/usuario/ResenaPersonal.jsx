@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useUsuario } from "../../hooks/UserContext";
+import "../common/BotonResena.css";
 
 function ResenaPersonal({ pelicula }) {
   const { usuario } = useUsuario();
@@ -55,15 +56,6 @@ function ResenaPersonal({ pelicula }) {
       <button
         onClick={guardar}
         disabled={loading}
-        style={{
-          marginTop: "0.5rem",
-          padding: "0.5rem 1rem",
-          backgroundColor: "#2196f3",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: loading ? "not-allowed" : "pointer"
-        }}
       >
         {loading ? "Guardando..." : "Guardar Reseña"}
       </button>

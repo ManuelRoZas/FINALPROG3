@@ -1,4 +1,5 @@
 const db = require('../models');
+const { sequelize } = require('../models');
 const Pelicula = db.Pelicula;
 const { Op } = require('sequelize');
 
@@ -89,4 +90,15 @@ exports.obtenerPeliculasPorGenero = async (req, res) => {
   }
 };
 
-
+exports.obtenerPeliculasRandom = async (req, res) => {
+  try {
+    const peliculas = await Pelicula.findAll({
+      order: sequelize.literal('RANDOM()'),
+      limit: 5,
+    });
+    res.json(peliculas);
+  } catch (error) {
+    console.error('Error al obtener películas random:', error);
+    res.status(500).json({ error: 'Error al obtener películas random' });
+  }
+};

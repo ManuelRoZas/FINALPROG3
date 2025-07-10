@@ -1,41 +1,107 @@
 .pelicula-card {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, #871f1f, #5b0d0d);
-  box-shadow: 0 8px 20px rgba(135, 31, 31, 0.6);
-  color: #fff;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+  width: 340px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: green 5px solid;
+}
+
+.lista-peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
 }
 
 .pelicula-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(135, 31, 31, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
 
-.pelicula-card .poster {
+.portada-container {
   width: 100%;
-  border-radius: 0.75rem;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  height: 380px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.portada-container img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 
-.pelicula-card h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+.pelicula-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
-.pelicula-card p {
-  margin: 0.3rem 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.acciones-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.acciones-container button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.acciones-container button:hover {
+  background-color: #555;
+}
+
+.generos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.pelicula-card textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 60px;
+  margin-top: 10px;
+}
+
+.pelicula-card .guardar-resena-btn {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pelicula-card .guardar-resena-btn:hover {
+  background-color: #0056b3;
 }
