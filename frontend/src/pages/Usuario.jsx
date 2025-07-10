@@ -4,7 +4,6 @@ import "../styles/ListasUsuario.css";
 function UsuariosPage() {
   const [usuarios, setUsuarios] = useState([]);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
-
   const [guardadas, setGuardadas] = useState([]);
   const [vistas, setVistas] = useState([]);
   const [meGusta, setMeGusta] = useState([]);
@@ -79,6 +78,56 @@ function UsuariosPage() {
           <option key={u.id} value={u.id}>{u.nombre}</option>
         ))}
       </select>
+
+      <button className='agregar-usuario-btn' onClick={() => {
+        const nombre = prompt('Ingrese el nombre del nuevo usuario:');
+        if (nombre) {
+          fetch('/api/usuarios', {
+            method: 'POST',
+            headers: {  'Content-Type': 'application/json' },
+            body: JSON.stringify({ nombre }),
+          })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Error al crear el usuario');
+              }
+              return res.json();
+            })
+            .then(nuevoUsuario => {
+              setUsuarios(prev => [...prev, nuevoUsuario]);
+              setUsuarioSeleccionado(nuevoUsuario);
+            })
+            .catch(err => {
+              console.error('Error al agregar usuario:', err);
+            });
+        }
+      }}>Agregar Usuario</button>
+
+      <button className='agregar-usuario-btn' onClick={() => {
+        if (!usuarioSeleccionado) {
+          alert('Seleccioná un usuario para eliminar.');
+          return;
+        }
+
+        if (window.confirm(`¿Estás seguro de que deseas eliminar a ${usuarioSeleccionado.nombre}?`)) {
+          fetch(`/api/usuarios/${usuarioSeleccionado.id}`, {
+            method: 'DELETE',
+          })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Error al eliminar el usuario');
+              }
+              return res.json();
+            })
+            .then(() => {
+              setUsuarios(prev => prev.filter(u => u.id !== usuarioSeleccionado.id));
+              setUsuarioSeleccionado(null);
+            })
+            .catch(err => {
+              console.error('Error al eliminar usuario:', err);
+            });
+        }
+      }}>Eliminar Usuario</button>
 
       {!usuarioSeleccionado && <p>Seleccioná un usuario para ver sus listas.</p>}
 
